@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Greetings = () => {
+  const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("token");
 
-  if (isLoggedIn) {
-    return <Navigate to="/" replace={true} />;
-  }
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/"); // Redirect to main page if logged in
+    }
+  }, [isLoggedIn, navigate]);
 
   // Define styles as JavaScript objects
   const styles = {

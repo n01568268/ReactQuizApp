@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  // const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -37,6 +39,7 @@ const Login = () => {
       localStorage.setItem("name", name);
       console.log("Login successful");
       window.location.href = "/";
+      // navigate("/");
     } catch (error) {
       setError(error.message);
     }
